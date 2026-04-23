@@ -1604,4 +1604,6 @@ function renderAll(){renderDash();renderIns();renderTasks();renderEmails();rende
 function launchFromOB(){const name=document.getElementById('ob-name').value.trim();const agency=document.getElementById('ob-agency').value.trim();const role=document.getElementById('ob-role').value.trim();const key=document.getElementById('ob-key').value.trim();if(!name){toast('Please enter your name','error');return;}S.profile.name=name;S.profile.agency=agency;S.profile.role=role||'Insurance Agent';if(key)S.apiKey=key;save();launchApp();}
 function launchApp(){document.getElementById('ob').style.display='none';document.getElementById('app').classList.add('on');applyTheme(S.currentTheme||'blueprint');renderAll();if(S.profile.name){document.getElementById('sn').textContent=S.profile.name;document.getElementById('sr').textContent=S.profile.role||'Insurance Professional';}document.getElementById('tb-date').textContent=new Date().toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'});checkInsNotifs();checkTaskAlerts();startNiChk();setupDriveStatus();if(!S.profile.name)setTimeout(openProfile,800);}
 document.addEventListener('DOMContentLoaded',()=>{load();const p=S.profile;if(p?.name){launchApp();}});
-</script></body></html>
+</script><div id="toast-c"></div>
+<button class="afab" id="afab" onclick="toggleAudio()"><i class="fa-solid fa-headphones" id="afab-ico"></i></button>
+</body></html>
